@@ -1,6 +1,6 @@
 <?php
     
-    echo scanDirectoryImages("uploads");
+    echo scanDirectoryImages("images/");
     
     /**
      * Recursively search through directory for images and display them
@@ -9,7 +9,7 @@
      * @param  string $directory
      * @return string
      */
-    function scanDirectoryImages($directory, array $exts = array('jpeg', 'jpg', 'gif', 'png'))
+    function scanDirectoryImages($directory, array $exts = array('jpeg', 'jpg', 'gif', 'png', 'pdf'))
     {
         if (substr($directory, -1) == '/') {
             $directory = substr($directory, 0, -1);
@@ -32,7 +32,7 @@
                             && in_array(end(explode('.', end(explode('/', $path)))),   $exts)
                             ) {
                             $html .= '<a href="' . $path . '"><img src="' . $path
-                            . '" style="max-height:100px;max-width:100px" />  </a>';
+                            . '" style="max-height:400px;max-width:400px" />  </a>';
                         }
                     }
                 }
